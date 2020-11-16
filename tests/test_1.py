@@ -1,4 +1,4 @@
-from zad1.main import ValidPassword
+from src.zad1.main import ValidPassword
 import unittest
 
 

@@ -1,4 +1,4 @@
-from zad2.main import ValidPassword
+from src.zad2.main import ValidPassword
 import unittest
 from parameterized import parameterized, parameterized_class
 from nose.tools import assert_equal, assert_raises
