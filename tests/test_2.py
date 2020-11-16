@@ -1,7 +1,7 @@
 from zad2.main import ValidPassword
 import unittest
 from parameterized import parameterized, parameterized_class
-from nose.tools import assert_equal
+from nose.tools import assert_equal, assert_raises
 
 temp = ValidPassword()
 
@@ -39,3 +39,13 @@ class TestValidatorInClass(unittest.TestCase):
 class TestValidatorFromClass(unittest.TestCase):
     def test_add(self):
         assert_equal(temp.validate(self.input_val), self.expected)
+
+
+@parameterized_class(("input_val", "error"), [
+    (123, TypeError),
+    (43+3j, TypeError),
+    (True, TypeError),
+])
+class TestValidatorExceptions(unittest.TestCase):
+    def test_add(self):
+        assert_raises(self.error, temp.validate, self.input_val)

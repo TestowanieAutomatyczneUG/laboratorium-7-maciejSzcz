@@ -5,7 +5,7 @@ import string
 class ValidPassword:
     def validate(self, password):
         if type(password) != str:
-            raise TypeError() # pragma: no cover
+            raise TypeError()
         elif len(password) < 8:
             return False
         elif re.search('[0-9]', password) is None:
