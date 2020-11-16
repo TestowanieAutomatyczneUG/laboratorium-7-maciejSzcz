@@ -17,15 +17,16 @@ def test_validator_outside(input_val, expected):
 
 
 class TestValidatorInClass(unittest.TestCase):
-   @parameterized.expand([
+    @parameterized.expand([
        ("NotAg00dP$$wrd", True),
        ("kot3", False),
        ("mojeDlugiehasloaleniedziala1", False),
        ("WrongPasswordAgain!", False),
-       ("tojestnowehaslo!#", False),
-   ])
-   def test_validator_in_class(self, input_val, expected):
-       assert_equal(temp.validate(input_val), expected)
+       ("gfdsgfdsgdsgdsgsd", False),
+    ])
+    def test_validator_in_class(self, input_val, expected):
+        assert_equal(temp.validate(input_val), expected)
+    
 
 
 @parameterized_class(("input_val", "expected"), [
@@ -33,7 +34,7 @@ class TestValidatorInClass(unittest.TestCase):
     ("kot3", False),
     ("mojeDlugiehasloaleniedziala1", False),
     ("WrongPasswordAgain!", False),
-    ("tojestnowehaslo!#", False),
+    ("tojestnowehaslo1", False),
 ])
 class TestValidatorFromClass(unittest.TestCase):
     def test_add(self):
